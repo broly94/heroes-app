@@ -13,7 +13,6 @@ export const Heroe = () => {
   const navigate = useNavigate();
 
   const onNavigateBack = () => {
-    console.log("click")
     return navigate(-1)
   }
 

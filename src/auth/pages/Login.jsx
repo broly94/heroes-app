@@ -1,12 +1,21 @@
 import React from 'react'
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext';
 
 export const Login = () => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const login = () => {
-    navigate('/', {
+  const { login } = useContext(AuthContext);
+
+  const handleLogin = () => {
+
+    login('Leonel Carro')
+
+    const lastPath = localStorage.getItem('lastPath') || '/';
+
+    navigate( lastPath , {
       replace: true
     })
   }
@@ -18,7 +27,7 @@ export const Login = () => {
         <hr />
         <button
           className='btn btn-primary'
-          onClick={login}
+          onClick={handleLogin}
         >
           Login
         </button>
